@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메인화면</title>
+  <link rel="stylesheet" href="/css/scroll.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/color-modes.js"></script>
+  <style>
+    /* Your custom CSS styles here */
+  </style>
+</head>
+<body>
+<div th:replace="header.html"></div>
+
+<div id="container">
+  <!-- Section One -->
+  <div class="list border_red">
+    <div class="one">
+      <!-- Video Gallery -->
+      <div class="video-gallery-container">
+        <div class="video-gallery">
+          <div class="video-card">
+            <video class="videosize" autoplay muted width="100%" height="100%">
+              <source src="/video/editI.mp4" type="video/mp4"/>
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="list border_red">
+    <div class="two">
+      <!-- Image Carousel -->
+      <div id="demo" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="./image/homepage/img.png" alt="First slide">
+            <div class="carousel-caption d-none d-md-block"></div>
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="./image/homepage/img_1.png" alt="Second slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block w-100" src="./image/homepage/img_3.png" alt="Third slide">
+          </div>
+        </div>
+        <!-- Carousel controls here -->
+        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next" href="#demo" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
+        <!-- Add this line to control slide interval (2-3 seconds) -->
+        <script>
+          $(document).ready(function(){
+            $('#demo').carousel({
+              interval: 3000 // 3 seconds
+            });
+          });
+        </script>
+        <ul class="carousel-indicators">
+          <li data-target="#demo" data-slide-to="0" class="active"></li>
+          <li data-target="#demo" data-slide-to="1"></li>
+          <li data-target="#demo" data-slide-to="2"></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="featurette-divider">
+  </div>
+  <!-- 나머지 내용은 그대로 사용 -->
+
+  <hr class="featurette-divider">
+
+  <!-- Section Three -->
+  <div class="list border_red">
+    <div class="three">
+      <div class="row">
+        <!-- Product Columns -->
+        <!-- Column One -->
+        <div class="col-lg-4">
+          <div class="text-center">
+            <img src="./image/img_3.png" alt="PLATE" width="140" height="140" class="bd-placeholder-img rounded-circle">
+            <h2 class="fw-normal">PLATE</h2>
+            <p>Some representative placeholder content for the first product.</p>
+            <p><a class="btn btn-secondary" href="plate.html">View details »</a></p>
+          </div>
+        </div>
+        <!-- Column Two -->
+        <div class="col-lg-4">
+          <div class="text-center">
+            <img src="./image/helmetsum.png" alt="HELMET" width="140" height="140" class="bd-placeholder-img rounded-circle">
+            <h2 class="fw-normal">HELMET</h2>
+            <p>Another exciting bit of representative placeholder content for the second product.</p>
+            <p><a class="btn btn-secondary" href="helmet.html">View details »</a></p>
+          </div>
+        </div>
+        <!-- Column Three -->
+        <div class="col-lg-4">
+          <div class="text-center">
+            <img src="./image/clothes.png" alt="CLOTHES" width="140" height="140" class="bd-placeholder-img rounded-circle">
+            <h2 class="fw-normal">CLOTHES</h2>
+            <p>And lastly this, the third column of representative placeholder content for the third product.</p>
+            <p><a class="btn btn-secondary" href="clothes.html">View details »</a></p>
+          </div>
+        </div>
+
+
+        <!-- Column Four -->
+        <div class="col-lg-4">
+          <div class="text-center">
+            <img src="./image/img_5.png" alt="PLATE" width="140" height="140" class="bd-placeholder-img rounded-circle">
+            <h2 class="fw-normal">BELT</h2>
+            <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+            <p><a class="btn btn-secondary" th:href="@{/belt}">View details »</a></p>
+          </div>
+        </div>
+        <!-- Column Five -->
+        <div class="col-lg-4">
+          <div class="text-center">
+            <img src="./image/img_7.png" alt="HELMET" width="140" height="140" class="bd-placeholder-img rounded-circle" border="1px so">
+            <h2 class="fw-normal">SLING</h2>
+            <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+            <p><a class="btn btn-secondary" href="">View details »</a></p>
+          </div>
+        </div>
+        <!-- Column Six -->
+        <div class="col-lg-4">
+          <div class="text-center">
+            <img src="./image/img_8.png" alt="CLOTHES" width="140" height="140" class="bd-placeholder-img rounded-circle">
+            <h2 class="fw-normal">POUCHES</h2>
+            <p>And lastly this, the third column of representative placeholder content.</p>
+            <p><a class="btn btn-secondary" href="#">View details »</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr class="featurette-divider">
+  </div>
+
+  <!-- Section Four -->
+  <div class="list">
+    <div class="four">
+    <hr class="featurette-divider">
+    <!-- Featurette One -->
+    <div class="row featurette">
+      <div class="col-md-7"> <!-- 순서 변경 -->
+        <h2 class="featurette-heading fw-normal lh-1" style="font-size: 40px;">Plate Carrier</h2>
+        <p class="lead">방탄 보호: 플레이트 케리어는 탄약, 날카로운 물체 및 충격으로부터 몸을 보호하는 역할을 합니다. 이러한 보호 기능은 전투 상황에서 생명을 지키는 데 중요합니다. 플레이트 케리어는 다양한 장비를 효과적으로 운반할 수 있는 플랫폼을 제공합니다. 그것은 탄약 파우치, 무기 홀더, 의료 키트 등을 수납할 수 있어 장비 접근성을 향상시킵니다. 군인, 경찰, 구조대 및 전문 안전 요원들에게 필요한 전문적인 장비입니다. 플레이트 케리어를 사용함으로써 잠재적인 위험 상황에서 더 효과적으로 대응할 수 있습니다.</p>
+      </div>
+      <div class="col-md-5"> <!-- 순서 변경 -->
+        <img src="./image/jpc.png" alt="" style="width: 300px; height: 300px">
+      </div>
+    </div>
+    <hr class="featurette-divider">
+
+    <!-- Featurette Two -->
+    <div class="row featurette">
+      <div class="col-md-6">
+        <img src="./image/helmet.png" alt="" style="width: 300px; height: 300px">
+      </div>
+      <div class="col-md-6 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1" style="font-size: 40px;">Helmet </h2>
+        <p class="lead">AIRFRAME™ 탄도 헬멧은 보호, 편안함 및 모듈성의 표준을 설정합니다.
+          완전한 AIRFRAME™ 헬멧은 완전한 ACH 2002 헬멧보다 무게가 가벼우면서도 더 넓은 적용 범위를 제공합니다.
+          AIRFRAME™은 일반적인 파편 위협을 초과하면서 머리 무게를 획기적으로 줄이는 임무를 가지고 개발되었습니다.
+          완전한 중형 AIRFRAME™ 헬멧의 무게는 2.30lbs에 불과하고, 대형의 무게는 2.55lbs에 불과합니다.
+          AIRFRAME™의 고유한 중첩 쉘 디자인은 수동 냉각을 제공하고 폭발 폭발파의 피해 효과를 줄일 수 있는 통합 통풍구를 생성합니다.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+
+  <div class="list">
+    <div class="five">
+    <hr class="featurette-divider">
+    <!-- Featurette Three -->
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1" style="font-size: 40px;">Combat Uniform</h2>
+        <p class="lead">전투복은 군인 및 경찰과 같은 전문 안전 요원들이 위험한 상황에서 사용하는 중요한 장비입니다.
+          이러한 전문적인 의상은 다양한 위험으로부터 보호하고, 작전 효율성을 향상시킵니다.
+          특수 재질과 디자인은 환경 조건에 따라 적응할 수 있도록 제작되었습니다.
+          또한 편안한 착용감과 휴대성을 제공하여 장시간의 임무 수행도 가능하게 합니다.
+          전투복은 최신 기술과 소재를 사용하여 위협으로부터 목숨을 지키는 데 필수적입니다.</p>
+      </div>
+      <div class="col-md-5">
+        <img src="./image/clothes.png" alt="" style="max-width: 300px; height: 300px;">
+      </div>
+    </div>
+    <hr class="featurette-divider">
+    <!-- Featurette Four -->
+    <div class="row featurette">
+      <div class="col-md-5 order-md-1">
+        <img src="./image/img_5.png" alt="" style="max-width: 300px; height: 300px;">
+      </div>
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1" style="font-size: 40px;">Tactical Belt </h2>
+        <p class="lead">Tactical Belt 군인 및 경찰과 같은 전문 안전 요원들이 위험한 상황에서 사용하는 중요한 장비입니다.
+          타티컬 벨트는 뛰어난 내구성을 가지고 있으며, 긴 지속 사용을 견딜 수 있는 강화된 재료로 만들어집니다.
+          이로써 벨트에 부착된 장비와 탄약 주머니 등을 안전하게 지지할 수 있습니다.
+          많은 타티컬 벨트는 모듈러 디자인을 채택하고 있어, 사용자가 필요에 따라 벨트에 다양한 액세서리 및 장비를 추가하거나 제거할 수 있습니다.
+          이는 다양한 임무나 활동에 맞게 벨트를 구성할 수 있음을 의미합니다.</p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  <div class="list">
+    <div class="six">
+    <hr class="featurette-divider">
+    <!-- Featurette Five -->
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading fw-normal lh-1" style="font-size: 40px;">Tactical Sling </h2>
+        <p class="lead">타티컬 슬링은 총기를 안정적으로 운반할 수 있도록 돕는 주된 역할을 합니다. 총기를 휴대하거나 사용하지 않을 때, 슬링을 사용하여 무기를 몸에 고정시킴으로써 손을 자유롭게 사용할 수 있고, 긴 시간 동안 무기를 들고 있을 때 피로를 줄여줍니다. 타티컬 슬링은 무기를 빠르게 겨누고 쏠 수 있도록 도와줍니다. 슬링을 사용하면 어깨나 체스트에 무기를 고정할 수 있어, 필요할 때 빠르게 무기를 끌어당겨 쏘거나 교체할 수 있습니다.</p>
+      </div>
+      <div class="col-md-5">
+        <img src="./image/sling.png" alt="" style="max-width: 300px; height:300px">
+      </div>
+    </div>
+    <hr class="featurette-divider">
+    <!-- Featurette Six -->
+    <div class="row featurette">
+      <div class="col-md-5 order-md-1">
+        <img src="./image/img_8.png" alt="" style="max-width: 300px; height: 300px">
+      </div>
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1" style="font-size: 40px;">Tactical Pouch </h2>
+        <p class="lead">택티컬 파우치는 다양한 종류의 장비 및 액세서리를 보관하기 위해 설계되었습니다.
+          탄약, 수송용 도구, 의료 용품, 통신 장비, 나침반, 전자 기기, 금속 탐지기, 식량 등을 수납하고 운반할 수 있습니다.
+          다수의 내부 구획, 포켓, 홀더 및 패널을 포함하여 파우치 내부는 장비를 조직화하고 쉽게 액세스할 수 있도록 설계되어 있습니다.
+          이는 긴급한 상황에서 필요한 아이템에 빠르게 접근할 수 있음을 의미합니다.</p>
+      </div>
+    </div>
+      <hr class="featurette-divider">
+
+  </div>
+  </div>
+</div>
+<footer>
+  <div class="list">
+    <div class="seven"></div>
+    <div th:replace="footer.html"></div>
+  </div>
+</footer>
+</body>
+</html>

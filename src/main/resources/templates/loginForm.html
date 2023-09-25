@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>빼고하죠</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+		 .min_width_login_box {
+			 min-width : 400px;
+			 }
+		 footer {
+			 position: fixed;
+			 bottom: 0;
+			 left: 0;
+			 right: 0;
+			 background-color: #f8f9fa; /* 원하는 배경색을 설정하세요. */
+			 padding: 10px;
+			 text-align: center;
+		 }
+		 .form-footer-spacing {
+			 margin-top: 20px; /* 원하는 간격 크기를 설정하세요. */
+		 }
+	</style>
+    
+</head>
+<body>
+<div th:replace="header.html"></div>
+	
+	<hr class="featurette-divider">
+
+	<div class="container mt-5">
+	    <div class="row justify-content-center">
+	        <!-- 로그인 폼 -->
+	        <div class="min_width_login_box col-5 col-sm-4 col-md-4 col-lg-4 col-xl-4 col-xxl-4 border border-black shadow p-3 g-col-6">
+	            <h3 class="text-center text-gray">로그인</h3>
+	            
+	            <form action="/login" method="post">
+	                <div class="form-group">
+	                    <label class="text-gray">E-mail</label>
+	                    <input type="email" class="form-control" name = "username"/>
+	                    
+	                    <label class="text-gray">Password</label>
+	                    <input type="password" class="form-control" name = "password"/>
+	                    
+	                    <input type="hidden" th:name = "${_csrf.parameterName}" th:value = "${_csrf.token}" >
+	                </div>
+	              	<button type="submit" class="btn btn-dark btn-block mt-3 py-2 mb-4">로그인</button>
+	            </form>
+	            
+	            <hr class="featurette-divider">
+          		<a class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" th:href="@{/joinForm}">
+            		회원가입 하러가기
+          		</a>
+          		<a class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" th:href="@{/oauth2/authorization/google}">
+            		구글 아이디로 로그인하기
+          		</a>
+          		<a class="w-100 py-2 mb-2 btn btn-outline-primary rounded-3" th:href="@{/oauth2/authorization/facebook}">
+            		페이스북 아이디로 로그인하기
+          		</a>
+          		<a class="w-100 py-2 mb-0 btn btn-outline-primary rounded-3" th:href="@{/oauth2/authorization/naver}">
+            		네이버 아이디로 로그인하기
+          		</a>
+     
+	            <hr class="featurette-divider">
+	            <a href="#" class="text-secondary text-right form-spacing">비밀번호를 잊으셨나요?</a><br>
+	            <a href="#" class="text-secondary text-right form-spacing">회원가입이 필요하세요?</a>
+	                
+	        </div>
+	    </div>
+	</div>
+
+<div class="form-footer-spacing"></div>
+		<footer>
+		<div th:replace="footer.html"></div>
+</footer>
+</body>
+</html>

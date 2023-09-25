@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            background-color: #ffffff;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        .info-item {
+            margin-bottom: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>User Information</h1>
+    <div class="info-item">
+        <label for="id" th:text="${user.id}">ID:</label>
+        <span id="id" th:text="${}"> </span>
+    </div>
+    <div class="info-item">
+        <label for="email">Email:</label>
+        <span id="email">qortmdgus9117@gmail.com</span>
+    </div>
+    <div class="info-item">
+        <label for="username">Username:</label>
+        <span id="username">백승현</span>
+    </div>
+    <div class="info-item">
+        <label for="gender">Gender:</label>
+        <span id="gender">남성</span>
+    </div>
+    <div class="info-item">
+        <label for="okno">OK/NO:</label>
+        <span id="okno">true</span>
+    </div>
+    <div class="info-item">
+        <label for="role">Role:</label>
+        <span id="role">USER</span>
+    </div>
+    <div class="info-item">
+        <label for="provider">Provider:</label>
+        <span id="provider">client</span>
+    </div>
+    <div class="info-item">
+        <label for="providerid">Provider ID:</label>
+        <span id="providerid">null</span>
+    </div>
+    <div class="info-item">
+        <label for="datetime">Datetime:</label>
+        <span id="datetime">2023-09-21T12:52:03.452414</span>
+    </div>
+</div>
+</body>
+</html>

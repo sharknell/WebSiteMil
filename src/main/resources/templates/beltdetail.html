@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Detail</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Reset some default styles */
+        body, h1, h6, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Style for the header */
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Style for the product details section */
+        .product-details {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        .product-details h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .product-details h6 {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .product-details p {
+            font-size: 18px;
+        }
+
+        .product-images {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .product-image {
+            flex: 0 0 calc(50% - 10px);
+            max-width: calc(50% - 10px);
+            margin-bottom: 20px;
+            border: 1px solid gray;
+        }
+
+        .product-image img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product-price p {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-top: 20px;
+        }
+
+        /* 푸터와 내용 간격 조절 */
+        .container {
+            margin-bottom: 60px; /* 아래에 80px 마진 추가 (푸터의 예상 높이에 맞추세요) */
+        }
+
+        /* 이미지 확대를 위한 스타일 */
+        .product-image:hover {
+            transform: scale(1.1); /* 이미지를 1.1배 확대 */
+            transition: transform 0.3s ease; /* 부드러운 전환 효과 추가 */
+        }
+
+        .dropdown-toggle::after {
+            display: none;
+        }
+
+        .dropdown-toggle::before {
+            content: '\f078';
+            font-weight: 900;
+            margin-right: 5px;
+        }
+
+        .dropdown.show .dropdown-toggle::before {
+            content: '\f077';
+        }
+
+        .dropdown-menu {
+            min-width: 100%; /* 드롭다운 메뉴의 최소 너비를 버튼과 동일하게 설정 */
+        }
+
+        /* 설명칸을 기본적으로 숨김 */
+        .product-description {
+            display: none;
+        }
+
+        /* 설명칸이 나타날 때 스타일 */
+        .product-description.show {
+            display: block;
+            background-color: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div th:replace="header.html"></div>
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- 왼쪽 컬럼 (제품 이미지 및 설명) -->
+        <div class="col-md-6">
+            <div class="product-images">
+                <div class="product-image">
+                    <img th:src="'/img/' + ${List.imglink} + '.png'" alt="Product Image">
+                </div>
+                <div class="product-image">
+                    <img th:src="'/img/test/' + ${List.imglink1} + '.png'" alt="Product Image">
+                </div>
+                <div class="product-image">
+                    <img th:src="'/img/test/' + ${List.imglink2} + '.png'" alt="Product Image">
+                </div>
+                <div class="product-image">
+                    <img th:src="'/img/test/' + ${List.imglink3} + '.png'" alt="Product Image">
+                </div>
+            </div>
+        </div>
+        <!-- 오른쪽 컬럼 (회사, 카테고리, 제품 넘버) -->
+        <div class="col-md-6">
+            <div class="product-details">
+                <!-- 카테고리와 회사 표시 -->
+                <h6>Category: <span th:text="${List.category}"></span></h6>
+                <h6>Company: <span th:text="${List.company}"></span></h6>
+                <h6>Name : <span th:text="${List.itemname}"></span> </h6>
+                <h6>Price : $<span th:text="${List.price}"></span> </h6>
+                <hr class="featurette-divider">
+
+                <!-- 색상 선택 -->
+                <h1> Color:
+                    <div class="d-flex flex-row">
+                        <div th:each="entry : ${List.colorImages}" class="mr-2 mb-2">
+                            <img th:src="${entry.value}" alt="${entry.key}" width="45" height="45" class="mr-2">
+                        </div>
+                    </div>
+                    <hr class="featurette-divider">
+
+                </h1>
+
+                <!-- 드롭다운 버튼 대신 설명 버튼을 추가 -->
+                <button id="descriptionButton" class="btn btn-secondary">
+                    설명 보기
+                </button>
+
+                <!-- 설명칸 -->
+                <div class="product-description">
+                    <p th:text="${List.description}"></p>
+                </div>
+
+                <hr class="featurette-divider">
+
+                <!-- 배열로 만들어서 옵션으로 뽑기 -1--->
+                <!-- 장바구니 추가 폼 -->
+                <form method="post" th:action="@{/cart}">
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" class="form-control" id="quantity" name="quantity" value="1" min="1">
+                    </div>
+                    <div class="form-group">
+                        <label for="size">SIZE:</label>
+                        <select class="form-control" id="size" name="size">
+                            <option th:each="sizeOption : ${#strings.arraySplit(List.size, ',')}" th:value="${sizeOption}" th:text="${sizeOption}"></option>
+                        </select>
+                    </div>
+
+                    <!-- 컬러 선택 -->
+                    <div class="form-group">
+                        <label for="color">Color:</label>
+                        <select class="form-control" id="color" name="color">
+                            <option th:each="color : ${#strings.arraySplit(List.color, ',')}" th:value="${color}" th:text="${color}"></option>
+                        </select>
+                    </div>
+
+                    <input type="hidden" name="productId" th:value="${List.itemcount}">
+                    <button type="submit" class="btn btn-primary">장바구니에 추가</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div th:replace="footer.html"></div>
+
+<!-- 부트스트랩 스크립트 포함 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+
+    // 설명 버튼 클릭 시 설명칸을 토글 (나타났다가 사라지게 함)
+    document.querySelector('#descriptionButton').addEventListener('click', function () {
+        var description = document.querySelector('.product-description');
+        if (description.style.display === 'block') {
+            description.style.display = 'none';
+        } else {
+            description.style.display = 'block';
+        }
+    });
+
+</script>
+
+<script>
+    // 장바구니 추가 버튼 클릭 이벤트
+    document.querySelector('form').addEventListener('submit', function (event) {
+        // 로그인 여부를 확인하는 로직을 여기에 추가 (예: 세션 또는 쿠키 확인)
+        var isLoggedIn = true; // 예시: 로그인 중인 경우 true, 아니면 false로 설정
+
+        if (!isLoggedIn) {
+            // 로그인 중이 아닌 경우
+            event.preventDefault(); // 기본 폼 제출 동작을 막음
+
+            // 로그인 페이지로 리디렉션 (원하는 로그인 페이지 URL로 변경)
+            window.location.href = '/loginForm'; // 로그인 페이지 URL로 변경
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <!-- 여기에 CSS 및 JavaScript 링크 추가 -->
+</head>
+<style>
+  /* 푸터를 화면 하단에 고정 */
+  footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    height: 150px; /* 푸터의 높이를 설정하세요. 필요에 따라 조절하세요. */
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+
+  footer a {
+    color: #999999;
+    text-decoration: none;
+  }
+
+  footer .container {
+    max-width: 1200px;
+  }
+
+  footer h4 {
+    color: #fff;
+    font-size: 18px; /* 헤더 크기 조절 */
+  }
+
+  footer address {
+    margin-bottom: 20px;
+  }
+
+  footer ul.list-unstyled {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  footer ul.list-unstyled li {
+    margin-bottom: 10px;
+  }
+
+  footer ul.list-unstyled li a {
+    color: #999; /* 회사 정보와 동일한 색상 */
+  }
+
+  .footer-secondary-nav .footer-address p {
+    margin: 0;
+  }
+
+  .footer-secondary-nav .footer-nav {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  .footer-secondary-nav .footer-nav .footer-nav-link {
+    display: block;
+    color: #999; /* 회사 정보와 동일한 색상 */
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 16px; /* 링크 크기 조절 */
+  }
+
+  .footer-secondary-nav .footer-nav .footer-nav-link:hover {
+    color: #fff;
+  }
+
+  .footer-secondary-nav .footer-nav .footer-nav-link-icon {
+    margin-right: 5px;
+  }
+</style>
+<body>
+<!-- 웹사이트 내용 -->
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-3">
+        <!-- SNS 정보 -->
+        <div class="footer-secondary-nav">
+          <h4>SNS</h4>
+          <nav class="footer-nav">
+            <!-- SNS 링크 추가 -->
+            <a class="footer-nav-link" id="footer-nav-instagram" href="#"><i class="footer-nav-link-icon"></i>Instagram</a>
+            <a class="footer-nav-link" id="footer-nav-facebook" href="#"><i class="footer-nav-link-icon"></i>Facebook</a>
+            <a class="footer-nav-link" id="footer-nav-youtube" href="#"><i class="footer-nav-link-icon"></i>Youtube</a>
+            <!-- 추가 링크 추가 -->
+          </nav>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <!-- 기업 정보 -->
+        <div class="footer-secondary-nav">
+          <h4>COMPANY</h4>
+          <nav class="footer-nav">
+            <!-- 회사 관련 링크 추가 -->
+            <a class="footer-nav-link" id="footer-nav-shipping" th:href="@{/shipping}">Shipping</a>
+            <a class="footer-nav-link" id="footer-nav-returns" th:href="@{/recalls}">Recalls</a>
+            <a class="footer-nav-link" id="footer-nav-careers" href="#">Careers</a>
+            <!-- 추가 링크 추가 -->
+          </nav>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <!-- 연락처 정보 -->
+        <div class="footer-secondary-nav">
+          <h4>CONTACT</h4>
+          <address>
+            <strong>Phone:</strong> +82 010-2328-5750<br>
+            <strong>Email:</strong> bcpsiers@icloud.com
+          </address>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <!-- Connect 정보 -->
+        <div class="footer-secondary-nav">
+          <h4>CONNECT</h4>
+          <div class="footer-address">
+            <p>80, Civic Road</p>
+            <p>Central Tower, 6th Floor</p>
+            <p>Uijeongbu-si, Gyeonggi-do</p>
+            <p>+82 031-837-4111</p>
+          </div>
+          <nav class="footer-nav">
+            <!-- Connect 링크 추가 -->
+            <!-- 추가 링크 추가 -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- 추가 내용 및 스크립트 -->
+
+</body>
+</html>

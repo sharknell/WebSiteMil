@@ -1,0 +1,15 @@
+.product-link{
+    position: absolute; /* 절대 위치로 설정 */
+    top: 25px; /* 상단에 위치 */
+    left: 25px; /* 좌측에 위치 */
+    background-color: #333; /* 어두운 배경색 지정 */
+    color: #fff; /* 밝은 글자색 지정 */
+    padding: 15px 15px; /* 내부 여백 설정 */
+    text-decoration: none; /* 밑줄 제거 */
+    z-index: 2; /* 다른 요소 위로 표시 */
+    transition: background-color 0.3s ease; /* 호버 시 배경색 변화 애니메이션 */
+}
+
+.product-link:hover{
+    background-color: #222; /* 호버 시 더 어두운 배경색 변경 */
+}

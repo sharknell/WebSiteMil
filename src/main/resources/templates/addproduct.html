@@ -1,0 +1,59 @@
+<!-- src/main/resources/templates/add-product.html -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Product</title>
+</head>
+<body>
+<div th:replace="header.html"></div>
+<h2>Add Product</h2>
+<form th:action="@{/add-product}" th:object="${belt}" method="post">
+  <div class="form-group">
+    <label for="itemname">Item Name:</label>
+    <input type="text" class="form-control" id="itemname" th:field="*{itemname}" required>
+  </div>
+
+  <div class="form-group">
+    <label for="colorImages">Color Images (e.g., Red: /images/red.jpg):</label>
+    <textarea class="form-control" id="colorImages" th:field="*{colorImages}" rows="4" required></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="company">Company:</label>
+    <input type="text" class="form-control" id="company" th:field="*{company}" required>
+  </div>
+
+  <div class="form-group">
+    <label for="size">Size:</label>
+    <input type="text" class="form-control" id="size" th:field="*{size}" required>
+  </div>
+
+  <div class="form-group">
+    <label for="category">Category:</label>
+    <input type="text" class="form-control" id="category" th:field="*{category}" required>
+  </div>
+
+  <div class="form-group">
+    <label for="price">Price:</label>
+    <input type="number" class="form-control" id="price" th:field="*{price}" required>
+  </div>
+
+
+  <div class="form-group">
+    <label for="images">Images (Minimum 4 images, separated by line breaks):</label>
+    <textarea class="form-control" id="images" th:field="*{images}" rows="4" required></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="imglink">Image Link:</label>
+    <input type="text" class="form-control" id="imglink" th:field="*{imglink}" required>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Add Product</button>
+</form>
+
+<div th:replace="footer.html"></div>
+</body>
+</html>

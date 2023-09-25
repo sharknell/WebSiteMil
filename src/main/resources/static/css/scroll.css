@@ -1,0 +1,63 @@
+body {
+    overflow: hidden;
+    font-family: 'Roboto Slab', serif;
+}
+
+/* Scroll down */
+
+#container{
+    width:100%;
+    height:100vh;
+    overflow: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+.list{
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: center;
+}
+
+/* .list:nth-child(1){
+    background-color: rgb(0, 0, 0);
+    background-size: cover;
+    background-attachment: fixed; 
+    background-position: center; 
+} */
+/* page 1 - main*/
+.list:nth-child(2){
+    background-size: cover;
+    background-attachment: fixed; 
+    background-position: center; 
+}
+/* page 2 - about */
+.list:nth-child(3){
+    background-size: cover;
+    background-attachment: fixed; 
+    background-position: center; 
+}
+
+/* page 3 favorites */
+.list:nth-child(4){
+    background-size: cover;
+    background-attachment: fixed; 
+    background-position: center; 
+}
+
+/* page 4  - contact*/
+.list:nth-child(5){
+    background-size: cover;
+    background-attachment: fixed; 
+    background-position: center; 
+}
+.list:nth-child(6){
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+.list:nth-child(7){
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
